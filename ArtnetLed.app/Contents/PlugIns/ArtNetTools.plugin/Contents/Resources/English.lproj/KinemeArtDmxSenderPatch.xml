@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>nodeAttributes</key>
+	<dict>
+		<key>category</key>
+		<string>Kineme Art-Net</string>
+		<key>categories</key>
+		<array>
+			<string>Kineme Art-Net</string>
+		</array>
+		<key>copyright</key>
+		<string>Copyright 2008 Kosada Incorporated. All rights reserved.</string>
+		<key>description</key>
+		<string>This patch broadcasts a structure of DMX values to the specified IP Network, Sub-Net, and Universe.
+
+In order to send ArtDmx packets, one of your computer's network interfaces must be set to a valid Art-Net IP Subnet. These are as follows:
+
+    * 2.0.0.0/8 (network 2.0.0.0, netmask 255.0.0.0, broadcast 2.255.255.255)
+    * 10.0.0.0/8 (network 10.0.0.0, netmask 255.0.0.0, broadcast 10.255.255.255)
+
+If none of your computer's network interfaces are set accordingly, Art-Net packets will not be sent.
+
+http://kineme.net/</string>
+		<key>name</key>
+		<string>ArtDmx Sender</string>
+	</dict>
+	<key>inputAttributes</key>
+	<dict>
+		<key>inputNetwork</key>
+		<dict>
+			<key>description</key>
+			<string>Network</string>
+			<key>name</key>
+			<string>Network</string>
+			<key>menu</key>
+			<array>
+				<string>2.0.0.0/8</string>
+				<string>10.0.0.0/8</string>
+			</array>
+		</dict>
+		<key>inputBlackout</key>
+		<dict>
+			<key>description</key>
+			<string>When enabled, all DMX512 channels will be sent as zeros to disable all output.</string>
+			<key>name</key>
+			<string>Blackout</string>		
+		</dict>
+		<key>inputSubNet</key>
+		<dict>
+			<key>description</key>
+			<string>Sub-Net</string>
+			<key>name</key>
+			<string>Sub-Net</string>
+		</dict>
+		<key>inputPhysical</key>
+		<dict>
+			<key>description</key>
+			<string>Physical</string>
+			<key>name</key>
+			<string>Physical</string>
+		</dict>
+		<key>inputUniverse</key>
+		<dict>
+			<key>description</key>
+			<string>Universe</string>
+			<key>name</key>
+			<string>Universe</string>
+		</dict>
+		<key>inputNormalizedValues</key>
+		<dict>
+			<key>description</key>
+			<string>When enabled, the Channel Structure values will be interpreted
+as floating-point values ranging from 0 to 1.
+
+When disabled, the Channel Structure values will be interpreted
+as integer values ranging from 0 to 255, or from 0 to 65535 if the channel is a 16-bit composite channel.</string>
+			<key>name</key>
+			<string>Normalized Values</string>
+		</dict>
+		<key>inputSendShortFrames</key>
+		<dict>
+			<key>description</key>
+			<string>When enabled, complete DMX512 frames will be sent at start and every 4 seconds,
+and short frames will be sent in the interim.
+This is more efficient, but may be incompatible with some hardware.
+
+When disabled, complete DMX512 frames will always be sent.</string>
+			<key>name</key>
+			<string>Send Short Frames</string>
+		</dict>
+		<key>inputChannelStructure</key>
+		<dict>
+			<key>description</key>
+			<string>A keyed structure — the structure's key represents the output ArtDmx channel (1 to 512),
+and the structure's value represents the value to send to that channel — 0 to 255 (8bit), or 0 to 65535 (16bit) — or 0 to 1 if Normalized).
+
+You can also specify comma-delimited keys, representing a 16bit composite channel consisting of two arbitrary 8bit channels.
+For example, you could specify a key of "42,79" — "42" is the channel to which the MSB is sent, and "79" is the channel to which the LSB is sent.</string>
+			<key>name</key>
+			<string>Channel Structure</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
